@@ -13,7 +13,7 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 
-namespace StackOverflow.Tests.OpenXml.Wordprocessing
+namespace CodeSnippets.OpenXml.Wordprocessing
 {
     /// <summary>
     /// Sample class that transforms block-level structured document tags (SDTs)

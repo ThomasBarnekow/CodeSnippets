@@ -12,7 +12,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Xunit;
 
-namespace StackOverflow.Tests.OpenXml.Wordprocessing
+namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 {
     /// <summary>
     /// Demonstrates how to work with Word comments, using the Open XML SDK.

@@ -11,7 +11,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Xunit;
 
-namespace StackOverflow.Tests.OpenXml.Wordprocessing
+namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 {
     public class SimpleFieldTests
     {

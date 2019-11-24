@@ -9,12 +9,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using CodeSnippets.OpenXml.Wordprocessing;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Xunit;
 
-namespace StackOverflow.Tests.OpenXml.Wordprocessing
+namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 {
     /// <summary>
     /// This class demonstrates how to use AlternativeFormatImportParts and AltChunk
