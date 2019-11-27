@@ -24,4 +24,10 @@
     <ProjectReference Include="..\CodeSnippets\CodeSnippets.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="OpenXmlPowerTools">
+      <HintPath>..\Libs\OpenXmlPowerTools\netstandard2.0\OpenXmlPowerTools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

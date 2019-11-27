@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <Reference Include="OpenXmlPowerTools">
-      <HintPath>..\Libs\OpenXmlPowerTools\OpenXmlPowerTools.dll</HintPath>
+      <HintPath>..\Libs\OpenXmlPowerTools\net471\OpenXmlPowerTools.dll</HintPath>
     </Reference>
   </ItemGroup>
 
