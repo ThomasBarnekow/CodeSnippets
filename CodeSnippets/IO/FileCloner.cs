@@ -10,6 +10,27 @@ using System.IO;
 
 namespace CodeSnippets.IO
 {
+    /// <summary>
+    /// This class demonstrates multiple ways to clone files stored in the file system.
+    /// In all cases, the source file is stored in the file system. Where the return type
+    /// is a <see cref="MemoryStream"/>, the destination file will be stored only on that
+    /// <see cref="MemoryStream"/>. Where the return type is a <see cref="FileStream"/>,
+    /// the destination file will be stored in the file system and opened on that
+    /// <see cref="FileStream"/>.
+    /// </summary>
+    /// <remarks>
+    /// The contents of the <see cref="MemoryStream"/> instances returned by the sample
+    /// methods can be written to a file as follows:
+    ///
+    ///     var stream = ReadAllBytesToMemoryStream(sourcePath);
+    ///     File.WriteAllBytes(destPath, stream.GetBuffer());
+    ///
+    /// You can use <see cref="MemoryStream.GetBuffer"/> in cases where the MemoryStream
+    /// was created using <see cref="MemoryStream()"/> or <see cref="MemoryStream(int)"/>.
+    /// In other cases, you can use the <see cref="MemoryStream.ToArray"/> method, which
+    /// copies the internal buffer to a new byte array. Thus, GetBuffer() should be a tad
+    /// faster.
+    /// </remarks>
     public static class FileCloner
     {
         public static MemoryStream ReadAllBytesToMemoryStream(string path)

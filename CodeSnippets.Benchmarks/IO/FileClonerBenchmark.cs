@@ -99,6 +99,14 @@ namespace CodeSnippets.Benchmarks.IO
             ChangeWordprocessingDocument(wordDocument);
         }
 
+        [Benchmark]
+        public void DoWorkCloningOpenXmlPackage()
+        {
+            using WordprocessingDocument sourceWordDocument = WordprocessingDocument.Open(SourcePath, false);
+            using var wordDocument = (WordprocessingDocument) sourceWordDocument.Clone(DestPath, true);
+            ChangeWordprocessingDocument(wordDocument);
+        }
+
         #endregion
     }
 }
