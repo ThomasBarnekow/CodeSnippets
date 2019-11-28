@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MultiLevelListExample>
+
+  <!-- Main Document Part -->
+  <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    <w:body>
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="ListLowerLetter0"/>
+        </w:pPr>
+        <w:r>
+          <w:t>First paragraph, on outline level 0 (shown as 1 in Word)</w:t>
+        </w:r>
+      </w:p>
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="ListLowerLetter0"/>
+        </w:pPr>
+        <w:r>
+          <w:t>Second paragraph, on outline level 0</w:t>
+        </w:r>
+      </w:p>
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="ListLowerLetter0"/>
+          <w:numPr>
+            <w:ilvl w:val="1"/>
+            <w:numId w:val="43"/>
+          </w:numPr>
+        </w:pPr>
+        <w:r>
+          <w:t>Third paragraph, on outline level 1 (shown as 2 in Word)</w:t>
+        </w:r>
+      </w:p>
+      <w:p>
+        <w:pPr>
+          <w:pStyle w:val="ListLowerLetter0"/>
+          <w:numPr>
+            <w:ilvl w:val="1"/>
+            <w:numId w:val="43"/>
+          </w:numPr>
+        </w:pPr>
+        <w:r>
+          <w:t>Fourth paragraph, on outline level 1</w:t>
+        </w:r>
+      </w:p>
+    </w:body>
+  </w:document>
+
+  <!-- Style Definitions Part (slightly simplified) -->
+  <w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+
+    <!-- I've included this for completeness, because it is referenced by our
+         paragraph style below -->
+    <w:style w:type="paragraph" w:default="1" w:styleId="Normal">
+      <w:name w:val="Normal"/>
+      <w:rPr>
+        <w:kern w:val="16"/>
+      </w:rPr>
+    </w:style>
+
+    <!-- I've included this for completeness, because it is referenced by our
+         list style below -->
+    <w:style w:type="numbering" w:default="1" w:styleId="NoList">
+      <w:name w:val="No List"/>
+      <w:semiHidden/>
+      <w:unhideWhenUsed/>
+    </w:style>
+
+    <!-- This is the paragraph style used in the main document part (w:document) -->
+    <w:style w:type="paragraph" w:customStyle="1" w:styleId="ListLowerLetter0">
+      <w:name w:val="List Lower Letter 0"/>
+      <w:basedOn w:val="Normal"/>
+      <w:pPr>
+        <w:numPr>
+          <!-- This references the w:numbering/w:num -->
+          <w:numId w:val="43"/>
+        </w:numPr>
+      </w:pPr>
+    </w:style>
+
+    <!-- This is the list style referenced in the numbering definitions part (w:numbering).
+         This is optional but helps if you want to use the list in Word. -->
+    <w:style w:type="numbering" w:customStyle="1" w:styleId="ListLowerLetter0List">
+      <w:name w:val="List Lower Letter 0 List"/>
+      <w:basedOn w:val="NoList"/>
+      <w:pPr>
+        <w:numPr>
+          <!-- This references the w:numbering/w:num -->
+          <w:numId w:val="43"/>
+        </w:numPr>
+      </w:pPr>
+    </w:style>
+  </w:styles>
+
+  <!-- Numbering Definitions Part -->
+  <w:numbering xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+               xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+               xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
+               mc:Ignorable="w14 w15">
+
+    <!-- Here's an example multi-level list -->
+    <w:abstractNum w:abstractNumId="67" w15:restartNumberingAfterBreak="0">
+      <w:nsid w:val="3E434843" />
+      <w:multiLevelType w:val="multilevel" />
+      <w:tmpl w:val="1146F302" />
+
+      <!-- The w:styleLink references our list style. This is optional (but I use
+           it as a best practice in Word) -->
+      <w:styleLink w:val="ListLowerLetter0List" />
+
+      <!-- This defines the first outline level, i.e., 0 in Open XML lingo or 1
+           when you look at it in Word -->
+      <w:lvl w:ilvl="0">
+        <!-- This starts the level at the ordinal number 1, i.e., a on this level -->
+        <w:start w:val="1" />
+
+        <!-- This defines the number format on this level -->
+        <w:numFmt w:val="lowerLetter" />
+
+        <!-- This references our paragraph style, which will be the same on each level -->
+        <w:pStyle w:val="ListLowerLetter0" />
+
+        <!-- This defines the level text, e.g., (a), (b), (c), ... -->
+        <w:lvlText w:val="(%1)" />
+
+        <!-- The next elements define alignment, indentation, and color -->
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="851" w:hanging="851" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+
+      <!-- This and the following w:lvl elements define levels 1 to 8 (i.e., 2 to 9 in Word) -->
+      <w:lvl w:ilvl="1">
+        <w:start w:val="1" />
+        <w:numFmt w:val="decimal" />
+        <w:lvlText w:val="(%2)" />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="1418" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="2">
+        <w:start w:val="1" />
+        <w:numFmt w:val="upperLetter" />
+        <w:lvlText w:val="(%3)" />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="1985" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="3">
+        <w:start w:val="1" />
+        <w:numFmt w:val="lowerRoman" />
+        <w:lvlText w:val="(%4)" />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="2552" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="4">
+        <w:start w:val="1" />
+        <w:numFmt w:val="lowerLetter" />
+        <w:lvlText w:val="%5." />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="3119" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="5">
+        <w:start w:val="1" />
+        <w:numFmt w:val="decimal" />
+        <w:lvlText w:val="%6." />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="3686" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="6">
+        <w:start w:val="1" />
+        <w:numFmt w:val="lowerLetter" />
+        <w:lvlText w:val="%7." />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="4253" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="7">
+        <w:start w:val="1" />
+        <w:numFmt w:val="lowerRoman" />
+        <w:lvlText w:val="%8." />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="4820" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+      <w:lvl w:ilvl="8">
+        <w:start w:val="1" />
+        <w:numFmt w:val="lowerLetter" />
+        <w:lvlText w:val="%9)" />
+        <w:lvlJc w:val="left" />
+        <w:pPr>
+          <w:ind w:left="5387" w:hanging="567" />
+        </w:pPr>
+        <w:rPr>
+          <w:color w:val="auto" />
+        </w:rPr>
+      </w:lvl>
+    </w:abstractNum>
+
+    <!-- This is the w:num referenced from our main document part (w:document) -->
+    <w:num w:numId="43">
+      <w:abstractNumId w:val="67" />
+    </w:num>
+  </w:numbering>
+
+</MultiLevelListExample>
