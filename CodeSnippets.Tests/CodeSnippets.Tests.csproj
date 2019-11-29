@@ -8,10 +8,22 @@
 
   <ItemGroup>
     <None Remove="Resources\Numbered Lists.docx" />
+    <None Remove="Resources\ZipContainer.docx" />
+    <None Remove="Resources\ZipContents.docx" />
+    <None Remove="Resources\ZipContents.zip" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\Numbered Lists.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ZipContainer.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ZipContents.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ZipContents.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
