@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -131,6 +132,47 @@ namespace CodeSnippets.Tests.IO.Compression
         }
 
         [Fact]
+        public async Task CreateResponseMessage_ZipArchiveDirectory_Success()
+        {
+            // Arrange, creating a ZIP archive with more than one entry.
+            List<(byte[] fileContent, string fileName)> files = Directory
+                .EnumerateFiles("Resources")
+                .Select(path => (File.ReadAllBytes(path), Path.GetFileName(path)))
+                .ToList();
+
+            Assert.True(files.Count > 1);
+
+            byte[] zipArchiveBytes = CreateZipArchiveBytes(files);
+
+            // Act.
+            using HttpResponseMessage message = CreateResponseMessage(zipArchiveBytes, "ZipArchive.zip", "application/zip");
+            HttpContent messageContent = message.Content;
+            byte[] messageBytes = await messageContent.ReadAsByteArrayAsync();
+
+            // Assert.
+            // Original zipArchiveBytes and recevied messageBytes are equal.
+            Assert.Equal(zipArchiveBytes, messageBytes);
+
+            // Original directory content and received ZIP archive content are equal.
+            using ZipArchive zipArchive = ReadZipArchive(messageBytes);
+
+            Assert.Equal(files.Count, zipArchive.Entries.Count);
+
+            foreach (ZipArchiveEntry entry in zipArchive.Entries)
+            {
+                byte[] fileContent = files
+                    .Where(file => file.fileName == entry.Name)
+                    .Select(file => file.fileContent)
+                    .Single();
+
+                await using Stream entryStream = entry.Open();
+                byte[] entryContent = await entryStream.ToArrayAsync();
+
+                Assert.Equal(fileContent, entryContent);
+            }
+        }
+
+        [Fact]
         public async Task CreateResponseMessage_ZipArchiveStream_Success()
         {
             // Arrange.
@@ -161,6 +203,41 @@ namespace CodeSnippets.Tests.IO.Compression
 
             Assert.Equal(fileContent.Length, entryContent.Length);
             Assert.Equal(fileContent, entryContent);
+        }
+
+        [Fact]
+        public void CreateZipArchiveBytes_Directory_ZipFileSuccessfullyCreated()
+        {
+            // Arrange, creating a ZIP archive with more than one entry.
+            List<(byte[] fileContent, string fileName)> files = Directory
+                .EnumerateFiles("Resources")
+                .Select(path => (File.ReadAllBytes(path), Path.GetFileName(path)))
+                .ToList();
+
+            Assert.True(files.Count > 1);
+
+            // Act.
+            byte[] zipArchiveBytes = CreateZipArchiveBytes(files);
+            File.WriteAllBytes("ZipArchive_Directory.zip", zipArchiveBytes);
+
+            // Assert.
+            using ZipArchive zipArchive = ReadZipArchive(zipArchiveBytes);
+
+            Assert.Equal(files.Count, zipArchive.Entries.Count);
+            Assert.Equal(files.Count, zipArchive.Entries.Count);
+
+            foreach (ZipArchiveEntry entry in zipArchive.Entries)
+            {
+                byte[] fileContent = files
+                    .Where(file => file.fileName == entry.Name)
+                    .Select(file => file.fileContent)
+                    .Single();
+
+                using Stream entryStream = entry.Open();
+                byte[] entryContent = entryStream.ToArray();
+
+                Assert.Equal(fileContent, entryContent);
+            }
         }
 
         [Fact]
@@ -211,5 +288,6 @@ namespace CodeSnippets.Tests.IO.Compression
             Assert.Equal(fileContent.Length, entryContent.Length);
             Assert.Equal(fileContent, entryContent);
         }
+
     }
 }
