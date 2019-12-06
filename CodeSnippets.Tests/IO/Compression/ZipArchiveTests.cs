@@ -224,7 +224,6 @@ namespace CodeSnippets.Tests.IO.Compression
             using ZipArchive zipArchive = ReadZipArchive(zipArchiveBytes);
 
             Assert.Equal(files.Count, zipArchive.Entries.Count);
-            Assert.Equal(files.Count, zipArchive.Entries.Count);
 
             foreach (ZipArchiveEntry entry in zipArchive.Entries)
             {
