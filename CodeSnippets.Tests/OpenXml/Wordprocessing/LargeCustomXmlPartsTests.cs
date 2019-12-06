@@ -23,10 +23,10 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 
         [Theory]
         [InlineData(5)]
-        [InlineData(10)]
-        [InlineData(15)]
-        [InlineData(20)]
-        [InlineData(30)]
+        // [InlineData(10)]
+        // [InlineData(15)]
+        // [InlineData(20)]
+        // [InlineData(30)]
         public void CanCreateLargeCustomXmlParts(int size)
         {
             int desiredStreamLength = size * 1024 * 1024;
