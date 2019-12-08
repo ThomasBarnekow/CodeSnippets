@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ChartTemplate.crtx" />
     <None Remove="Resources\Numbered Lists.docx" />
     <None Remove="Resources\UnsignedWorkbook.xlsx" />
     <None Remove="Resources\ZipContainer.docx" />
@@ -15,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\ChartTemplate.crtx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Numbered Lists.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
