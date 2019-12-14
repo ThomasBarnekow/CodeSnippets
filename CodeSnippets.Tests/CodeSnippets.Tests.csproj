@@ -9,6 +9,8 @@
   <ItemGroup>
     <None Remove="Resources\ChartTemplate.crtx" />
     <None Remove="Resources\Numbered Lists.docx" />
+    <None Remove="Resources\test-append.docx" />
+    <None Remove="Resources\test-source.docx" />
     <None Remove="Resources\UnsignedWorkbook.xlsx" />
     <None Remove="Resources\ZipContainer.docx" />
     <None Remove="Resources\ZipContents.docx" />
@@ -20,6 +22,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Numbered Lists.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\test-append.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\test-source.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\UnsignedWorkbook.xlsx">

@@ -7,6 +7,7 @@
 // Email: thomas<at/>barnekow<dot/>info
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -163,6 +164,128 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 
             return (string) sym.Attribute(W.font) == fontValue &&
                    (string) sym.Attribute(W._char) == charValue;
+        }
+
+        [Theory]
+        [InlineData("1 Run", "Firstname", new[] { "Firstname" }, "Albert")]
+        [InlineData("2 Runs", "Firstname", new[] { "F", "irstname" }, "Bernie")]
+        [InlineData("9 Runs", "Firstname", new[] { "F", "i", "r", "s", "t", "n", "a", "m", "e" }, "Charly")]
+        public void TagReplacer_FormattedDocument_StylingAndSymbolsMissing(
+            string example,
+            string propName,
+            IEnumerable<string> runTexts,
+            string replacement)
+        {
+            // Arrange.
+            using MemoryStream stream = CreateWordprocessingDocument(runTexts);
+
+            // Act.
+            TagReplacer.ReplaceTags(stream, propName, replacement);
+
+            // Assert.
+            using WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, false);
+            XElement document = wordDocument.MainDocumentPart.GetXElement();
+            XElement paragraph = document.Descendants(W.p).Single();
+            List<XElement> runs = paragraph.Elements(W.r).ToList();
+
+            // All run formatting is gone.
+            Assert.DoesNotContain(runs, r => r.Elements(W.rPr).Any());
+
+            // All symbols are gone.
+            Assert.DoesNotContain(runs, r => r.Elements(W.sym).Any());
+
+            // Save document for inspection.
+            File.WriteAllBytes($"TagReplacer {example} after Replacing.docx", stream.ToArray());
+        }
+
+        [Fact]
+        public void TagReplacer_OtherDocument_AsExpected()
+        {
+            // Arrange.
+            using MemoryStream stream = CreateOtherWordprocessingDocument();
+
+            // Act.
+            TagReplacer.ReplaceTags(stream, "Firstname", "Donald");
+
+            // Save document for inspection.
+            File.WriteAllBytes($"TagReplacer Other after Replacing.docx", stream.ToArray());
+        }
+
+        private static MemoryStream CreateOtherWordprocessingDocument()
+        {
+            var stream = new MemoryStream();
+            const WordprocessingDocumentType type = WordprocessingDocumentType.Document;
+
+            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(stream, type))
+            {
+                MainDocumentPart mainDocumentPart = wordDocument.AddMainDocumentPart();
+                mainDocumentPart.Document = CreateOtherDocument();
+            }
+
+            return stream;
+        }
+
+        private static Document CreateOtherDocument()
+        {
+            return new Document(
+                new Body(
+                    new Paragraph(
+                        new ParagraphProperties(
+                            new ParagraphStyleId { Val = "Heading1" }),
+                        new BookmarkStart { Id = "1", Name = "_Ref123456" },
+                        new Run(
+                            new Text("About Firstname")),
+                        new BookmarkEnd { Id = "1" })));
+        }
+
+        /// <summary>
+        /// This class is based on @petelid's answer to
+        /// https://stackoverflow.com/questions/28697701/openxml-tag-search,
+        /// </summary>
+        [SuppressMessage("ReSharper", "ConvertToUsingDeclaration")]
+        [SuppressMessage("ReSharper", "SuggestVarOrType_SimpleTypes")]
+        private static class TagReplacer
+        {
+            public static void ReplaceTags(MemoryStream stream, string pattern, string replacement)
+            {
+                Regex regex = new Regex(pattern, RegexOptions.Compiled);
+
+                using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, true))
+                {
+                    //grab the header parts and replace tags there
+                    foreach (HeaderPart headerPart in wordDocument.MainDocumentPart.HeaderParts)
+                    {
+                        ReplaceParagraphParts(headerPart.Header, regex, replacement);
+                    }
+                    //now do the document
+                    ReplaceParagraphParts(wordDocument.MainDocumentPart.Document, regex, replacement);
+                    //now replace the footer parts
+                    foreach (FooterPart footerPart in wordDocument.MainDocumentPart.FooterParts)
+                    {
+                        ReplaceParagraphParts(footerPart.Footer, regex, replacement);
+                    }
+                }
+            }
+
+            private static void ReplaceParagraphParts(OpenXmlElement element, Regex regex, string replacement)
+            {
+                foreach (var paragraph in element.Descendants<Paragraph>())
+                {
+                    Match match = regex.Match(paragraph.InnerText);
+                    if (match.Success)
+                    {
+                        //create a new run and set its value to the correct text
+                        //this must be done before the child runs are removed otherwise
+                        //paragraph.InnerText will be empty
+                        Run newRun = new Run();
+                        newRun.AppendChild(new Text(paragraph.InnerText.Replace(match.Value, replacement)));
+                        //remove any child runs
+                        paragraph.RemoveAllChildren<Run>();
+                        //add the newly created run
+                        paragraph.AppendChild(newRun);
+                    }
+                }
+            }
         }
     }
 }
