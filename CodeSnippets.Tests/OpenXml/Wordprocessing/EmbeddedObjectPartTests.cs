@@ -19,6 +19,8 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
         [SuppressMessage("ReSharper", "ConvertToUsingDeclaration")]
         private static void ExtractFile(EmbeddedObjectPart part, string destinationFolderPath)
         {
+            part.FeedData(new MemoryStream());
+
             // Determine the file name and destination path of the binary,
             // structured storage file.
             string binaryFileName = Path.GetFileName(part.Uri.ToString());
