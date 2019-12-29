@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Movies>
+  <Movie>
+    <Name>Crash</Name>
+    <Released>2005</Released>
+  </Movie>
+  <Movie>
+    <Name>The Departed</Name>
+    <Released>2006</Released>
+  </Movie>
+  <Movie>
+    <Name>The Pursuit of Happiness</Name>
+    <Released>2006</Released>
+  </Movie>
+  <Movie>
+    <Name>The Bucket List</Name>
+    <Released>2007</Released>
+  </Movie>
+</Movies>

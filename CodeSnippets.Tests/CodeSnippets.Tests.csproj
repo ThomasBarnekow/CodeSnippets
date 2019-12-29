@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\ChartTemplate.crtx" />
+    <None Remove="Resources\Movies.xml" />
     <None Remove="Resources\Numbered Lists.docx" />
     <None Remove="Resources\test-append.docx" />
     <None Remove="Resources\test-source.docx" />
@@ -19,6 +20,9 @@
 
   <ItemGroup>
     <Content Include="Resources\ChartTemplate.crtx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Movies.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Numbered Lists.docx">
