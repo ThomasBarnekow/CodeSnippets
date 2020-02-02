@@ -1,0 +1,19 @@
+﻿<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+  <SignedInfo>
+    <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+    <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+    <Reference URI="Resources/UnsignedDocument.docx">
+      <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <DigestValue>QoxgvOd8oJsqtBVFqTc/xYLJNscmR5MRUjPiGNqYldc=</DigestValue>
+    </Reference>
+  </SignedInfo>
+  <SignatureValue>lfMPwLL/+NNNGtKwgK6vNjOnM7oZcOuROU86Ylf5nJ4sg6CrHaunkjt9lcr8oxBS3/q+lxYuCOVU3htKVn+uvixsLnTVPogPNdq30irebdH2HM6X4krI+2T6/fdW+ayAoxisMRhBVs32JHWl8N/aqr5I/eWTnd29M5b0OmdZxA6hR+cphsHszxyF3V/FOCGh9GazJfA12N6d4J0SXPYEdQVwE+/Ejo/FQGqCjxRQafiCtmMr7iElgcM6E+PQmwC/0HJwKbVDFM9XvEUZwnDJzCn7H2a33mO18uru685OPGtq2kAO9npSmOZuLcLogrOr9MgbZWAQgYLuA1t3zR29eg==</SignatureValue>
+  <KeyInfo>
+    <KeyValue>
+      <RSAKeyValue>
+        <Modulus>x46JwNArVXX9YX0f1RdOtTQ9umYu4Uvy72nAtESr8kaMmYylE0JiPDKdU77cNn0R5zO4mTywQR0vRS++Wn+TV5sc6BFJTOxjyegkGO2TLugSvMnJqMyXpt8kLO96lBff+BbCO3dgAZB3oKDrI3Ugwtacrmv/ayN5NoDgC4+MweBqTZQpj0iSSBJLYciFl8K890ZeSDcE3OzGq6ICvlSA55g6xkyCExnB41q8hFS0+6WJBkM5UyMPNJNH+RVpaW3/4Jy+RPNRXVMo/uJYp5nmGMUoBRh63E3/yEY8xDJgmwHCE7x2h1qOAyziDW4hsjoxBc/sPbCmcle4/uqFY2T0VQ==</Modulus>
+        <Exponent>AQAB</Exponent>
+      </RSAKeyValue>
+    </KeyValue>
+  </KeyInfo>
+</Signature>

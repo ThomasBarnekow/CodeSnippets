@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="idPackageSignature">
+  <SignedInfo>
+    <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+    <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+    <Reference Type="http://www.w3.org/2000/09/xmldsig#Object" URI="#idPackageObject">
+      <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestValue>9DAD5O9niIPksNrnZh7k3xdzdUrmyWdAdSCvc1RjdeM=</DigestValue>
+    </Reference>
+    <Reference Type="http://www.w3.org/2000/09/xmldsig#Object" URI="#idOfficeObject">
+      <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestValue>0zu2a3dHY/veOj3AtPgvoCW0pHxCAaXY4Yqh1p2WkXU=</DigestValue>
+    </Reference>
+    <Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#idSignedProperties">
+      <Transforms>
+        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+      </Transforms>
+      <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestValue>Zye6XeVeY0+mFkM8krXzw4+u7+Tn5rdMS86onYqyzjk=</DigestValue>
+    </Reference>
+  </SignedInfo>
+  <SignatureValue>
+    hRdE//GmULnR9rbWzWLLHm6dP2UTRIiGV7BLZasu/59hDjvPewLqGbGV4P/EWpM7vdp+VNC6oDZc
+    f321xRsyikehUH3KybHEV8uXENolMT8MAN0pg//mTAu+UsZjJvihooyYe4Dp+/Lw1yyv1TCVKwf1
+    BS5/Kw8aWt0Omg4Qwp4Jd2sXtTkSryzQt8wtwEZKqE6vlnp32ON/Zty2CHc3232/15cuMoFzzoK3
+    n4rOssVQowkFzCk/KdrBie7ZUn9ZQ4tonul1S0oGOY/c1nzFs3hWtLZcfeXMurGQRmb0884gMXi9
+    o6kKOkxAx2cRBY29IjrtYE+FbyGVtNlNjzBUOA==
+  </SignatureValue>
+  <KeyInfo>
+    <X509Data>
+      <X509Certificate>MIIFODCCBCCgAwIBAgIQSQY7K9BBlrOGn9Ruh360KDANBgkqhkiG9w0BAQsFADB8MQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVyMRAwDgYDVQQHEwdTYWxmb3JkMRgwFgYDVQQKEw9TZWN0aWdvIExpbWl0ZWQxJDAiBgNVBAMTG1NlY3RpZ28gUlNBIENvZGUgU2lnbmluZyBDQTAeFw0xOTAzMDcwMDAwMDBaFw0yMTAzMDYyMzU5NTlaMIGpMQswCQYDVQQGEwJERTEOMAwGA1UEEQwFNTE0NjcxHDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xGjAYBgNVBAcMEUJlcmdpc2NoIEdsYWRiYWNoMRQwEgYDVQQJDAtBbXNlbHdlZyAxODEcMBoGA1UECgwTRHIuIFRob21hcyBCYXJuZWtvdzEcMBoGA1UEAwwTRHIuIFRob21hcyBCYXJuZWtvdzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOkfC84UAVFG+T6VyyLNxo+naVFtBj3pGhaub6yC0tyT8Tnzd6OaMf/Y8lIXLaY77ygEXPp1jKojXYEZ8GOPBHn30VMOewMfjfl3hHJKePZvqrRgE1URoYEAl0QRfxtryiRv+wKzGSQevLy2+nO6GIHn/7KAptJY270UUJMBP/yD2AFGcZBpyGFaLLPHwfI2Ool0vY1gcgkbUH6RCVv6yCoOHQRrRpf2SqviNjxXZqTXLJ2Ea0CZLbSGipVGNrjNeE8nhpGy6/A28+pplpEGECtjWC+ziDdvgOrK8azDNR7ynQNvvF4msyOsvRbiSFJzmxTZvMwlpOA9baNN3kzkGGkCAwEAAaOCAYYwggGCMB8GA1UdIwQYMBaAFA7hOqhTOjHVir7Bu61nGgOFrTQOMB0GA1UdDgQWBBTsDMDsVQQdrM7zVTXx9rd428l16jAOBgNVHQ8BAf8EBAMCB4AwDAYDVR0TAQH/BAIwADATBgNVHSUEDDAKBggrBgEFBQcDAzARBglghkgBhvhCAQEEBAMCBBAwQAYDVR0gBDkwNzA1BgwrBgEEAbIxAQIBAwIwJTAjBggrBgEFBQcCARYXaHR0cHM6Ly9zZWN0aWdvLmNvbS9DUFMwQwYDVR0fBDwwOjA4oDagNIYyaHR0cDovL2NybC5zZWN0aWdvLmNvbS9TZWN0aWdvUlNBQ29kZVNpZ25pbmdDQS5jcmwwcwYIKwYBBQUHAQEEZzBlMD4GCCsGAQUFBzAChjJodHRwOi8vY3J0LnNlY3RpZ28uY29tL1NlY3RpZ29SU0FDb2RlU2lnbmluZ0NBLmNydDAjBggrBgEFBQcwAYYXaHR0cDovL29jc3Auc2VjdGlnby5jb20wDQYJKoZIhvcNAQELBQADggEBAD1zHm5eQTWrqkEISj1/Ejgi+FJpVqKisCQFCtcoU1j60gelQT/pvrCvR852gDgcb7NQlbXykqeDICVhs2Q3Dp5EiHtrBS52Y1muwWFRHZuHSiYhgQjw/CwF5F67D2gZPQltzdUZemrhnsf/LoTxhLKyAGqN3aZ2A8Ub3fWaK54XpgFJpyAaePA2ArbmC9t83b7n0e/PsCY+w9nIy9jWXQPMUQOdKOHstJqf/9ONXATqXTZ0HFTSLObYaOxu5uPi5uRYoeM5hikmJLq0hIVIFgYH6ZtjTMRrruVDeu6lW/H1a47BG1DcmTnG9n4jlRVy4egQCZHRVKDGhMk0eIdeMrM=</X509Certificate>
+    </X509Data>
+  </KeyInfo>
+  <Object Id="idPackageObject">
+    <Manifest>
+      <Reference URI="/_rels/.rels?ContentType=application/vnd.openxmlformats-package.relationships+xml">
+        <Transforms>
+          <Transform Algorithm="http://schemas.openxmlformats.org/package/2006/RelationshipTransform">
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId1"/>
+          </Transform>
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>Mq3mDDWudLiaQFa1psBgLG+/en7p7r8re0MtlxnuiUI=</DigestValue>
+      </Reference>
+      <Reference URI="/word/_rels/document.xml.rels?ContentType=application/vnd.openxmlformats-package.relationships+xml">
+        <Transforms>
+          <Transform Algorithm="http://schemas.openxmlformats.org/package/2006/RelationshipTransform">
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId13"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId3"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId7"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId12"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId2"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId6"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId11"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId5"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId10"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId4"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId9"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId14"/>
+            <mdssi:RelationshipReference xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature" SourceId="rId8"/>
+          </Transform>
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>WjL4DpYU6hFLYG0I9Of53KrQgiO21F67biKpGizJXSE=</DigestValue>
+      </Reference>
+      <Reference URI="/word/document.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>KcDGdUDkLECCKKrHprmQXQUFkJIrklX3TwfTyaL4a/U=</DigestValue>
+      </Reference>
+      <Reference URI="/word/endnotes.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>PpICHkqMW+0IfItjHTiasIjHERGFlcmsutsHrFD1dDU=</DigestValue>
+      </Reference>
+      <Reference URI="/word/fontTable.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>PjRiOiwurP8FEdavWabeDfawP4Oss1YChrWd4pfQ6kM=</DigestValue>
+      </Reference>
+      <Reference URI="/word/footer1.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>WQ7A8CdKl8DUsrSJZTDilMmkppOFKOJB0wzJezwmPw0=</DigestValue>
+      </Reference>
+      <Reference URI="/word/footer2.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>YU2j6MpamT4bnUP2QsG92JnkWOcxq2ssQbfcQYc9iI8=</DigestValue>
+      </Reference>
+      <Reference URI="/word/footer3.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>A5EUzXeI+0YgzQy2iqbqHg5h2a+tMrICsnnM93mHuOg=</DigestValue>
+      </Reference>
+      <Reference URI="/word/footnotes.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>Z7GzbXF57sDWbvzwUa7Dr7FZkcmiDLxqLT1BfP+c8U4=</DigestValue>
+      </Reference>
+      <Reference URI="/word/header1.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>FpyhbAQANFrTS6cUEfKbiFkfcuidBS+4RZdA4EBGcuM=</DigestValue>
+      </Reference>
+      <Reference URI="/word/header2.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>xBM2gg8RVFSXF7RKa7+MHkHjdMQvYy2BPix8D0w5maE=</DigestValue>
+      </Reference>
+      <Reference URI="/word/header3.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>6lHIIApN3gH2l5TQdR683RyD7Yy+HEnZqkLge+3Reeg=</DigestValue>
+      </Reference>
+      <Reference URI="/word/settings.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>jLiC3N5NWH0Cd22S8E1sfy7UDqAqGuSgaIuYisujA+k=</DigestValue>
+      </Reference>
+      <Reference URI="/word/styles.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>cHHP7YwiBP4SP2uOgAFEcLUbt8y5Xghws10w6wGk/P8=</DigestValue>
+      </Reference>
+      <Reference URI="/word/theme/theme1.xml?ContentType=application/vnd.openxmlformats-officedocument.theme+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>RxVzlsQ1EdH+7k8XfICgyJoOID+tqDDtsJoqXbbwGWk=</DigestValue>
+      </Reference>
+      <Reference URI="/word/webSettings.xml?ContentType=application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml">
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>Xg3hEfvJ+Z2rkGfrnNiD+pFqrxlY1D1O8Hz9BaIymlQ=</DigestValue>
+      </Reference>
+    </Manifest>
+    <SignatureProperties>
+      <SignatureProperty Id="idSignatureTime" Target="#idPackageSignature">
+        <mdssi:SignatureTime xmlns:mdssi="http://schemas.openxmlformats.org/package/2006/digital-signature">
+          <mdssi:Format>YYYY-MM-DDThh:mm:ssTZD</mdssi:Format>
+          <mdssi:Value>2019-12-07T09:22:23Z</mdssi:Value>
+        </mdssi:SignatureTime>
+      </SignatureProperty>
+    </SignatureProperties>
+  </Object>
+  <Object Id="idOfficeObject">
+    <SignatureProperties>
+      <SignatureProperty Id="idOfficeV1Details" Target="#idPackageSignature">
+        <SignatureInfoV1 xmlns="http://schemas.microsoft.com/office/2006/digsig">
+          <SetupID></SetupID>
+          <SignatureText></SignatureText>
+          <SignatureImage/>
+          <SignatureComments>Testing</SignatureComments>
+          <WindowsVersion>10.0</WindowsVersion>
+          <OfficeVersion>16.0.12130/19</OfficeVersion>
+          <ApplicationVersion>16.0.12130</ApplicationVersion>
+          <Monitors>1</Monitors>
+          <HorizontalResolution>1920</HorizontalResolution>
+          <VerticalResolution>1080</VerticalResolution>
+          <ColorDepth>32</ColorDepth>
+          <SignatureProviderId>{00000000-0000-0000-0000-000000000000}</SignatureProviderId>
+          <SignatureProviderUrl></SignatureProviderUrl>
+          <SignatureProviderDetails>9</SignatureProviderDetails>
+          <SignatureType>1</SignatureType>
+        </SignatureInfoV1>
+      </SignatureProperty>
+    </SignatureProperties>
+  </Object>
+  <Object>
+    <xd:QualifyingProperties xmlns:xd="http://uri.etsi.org/01903/v1.3.2#" Target="#idPackageSignature">
+      <xd:SignedProperties Id="idSignedProperties">
+        <xd:SignedSignatureProperties>
+          <xd:SigningTime>2019-12-07T09:22:23Z</xd:SigningTime>
+          <xd:SigningCertificate>
+            <xd:Cert>
+              <xd:CertDigest>
+                <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <DigestValue>kA8GuiSvHYRsprgqsWRKIblpl8J1aBqxlifMBFq2UjA=</DigestValue>
+              </xd:CertDigest>
+              <xd:IssuerSerial>
+                <X509IssuerName>CN=Sectigo RSA Code Signing CA, O=Sectigo Limited, L=Salford, S=Greater Manchester, C=GB</X509IssuerName>
+                <X509SerialNumber>97065997606879845137425678314122425384</X509SerialNumber>
+              </xd:IssuerSerial>
+            </xd:Cert>
+          </xd:SigningCertificate>
+          <xd:SignaturePolicyIdentifier>
+            <xd:SignaturePolicyImplied/>
+          </xd:SignaturePolicyIdentifier>
+        </xd:SignedSignatureProperties>
+        <xd:SignedDataObjectProperties>
+          <xd:CommitmentTypeIndication>
+            <xd:CommitmentTypeId>
+              <xd:Identifier>http://uri.etsi.org/01903/v1.2.2#ProofOfOrigin</xd:Identifier>
+              <xd:Description>Created and approved this document</xd:Description>
+            </xd:CommitmentTypeId>
+            <xd:AllSignedDataObjects/>
+            <xd:CommitmentTypeQualifiers>
+              <xd:CommitmentTypeQualifier>Testing</xd:CommitmentTypeQualifier>
+            </xd:CommitmentTypeQualifiers>
+          </xd:CommitmentTypeIndication>
+        </xd:SignedDataObjectProperties>
+      </xd:SignedProperties>
+      <xd:UnsignedProperties>
+        <xd:UnsignedSignatureProperties>
+          <xd:CertificateValues>
+            <xd:EncapsulatedX509Certificate>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</xd:EncapsulatedX509Certificate>
+            <xd:EncapsulatedX509Certificate>MIIF3jCCA8agAwIBAgIQAf1tMPyjylGoG7xkDjUDLTANBgkqhkiG9w0BAQwFADCBiDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNleSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNVBAMTJVVTRVJUcnVzdCBSU0EgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMTAwMjAxMDAwMDAwWhcNMzgwMTE4MjM1OTU5WjCBiDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNleSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvcmsxLjAsBgNVBAMTJVVTRVJUcnVzdCBSU0EgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCAEmUXNg7D2wiz0KxXDXbtzSfTTK1Qg2HiqiBNCS1kCdzOiZ/MPans9s/B3PHTsdZ7NygRK0faOca8Ohm0X6a9fZ2jY0K2dvKpOyuR+OJv0OwWIJAJPuLodMkYtJHUYmTbf6MG8YgYapAiPLz+E/CHFHv25B+O1ORRxhFnRghRy4YUVD+8M/5+bJz/Fp0YvVGONaanZshyZ9shZrHUm3gDwFA66Mzw3LyeTP6vBZY1H1dat//O+T23LLb2VN3I5xI6Ta5MirdcmrS3ID3KfyI0rn47aGYBROcBTkZTmzNg95S+UzeQc0PzMsNT79uq/nROacdrjGCT3sTHDN/hMq7MkztReJVni+49Vv4M0GkPGw/zJSZrM233bkf6c0Plfg6lZrEpfDKEY1WJxA3Bk1QwGROs0303p+tdOmw1XNtB1xLaqUkL39iAigmTYo61Zs8liM2EuLE/pDkP2QKe6xJMlXzzawWpXhaDzLhn4ugTncxbgtNMs+1b/97lc6wjOy0AvzVVdAlJ2ElYGn+SNuZRkg7zJn0cTRe8yexDJtC/QV9AqURE9JnnV4eeUB9XVKg+/XRjL7FQZQnmWEIuQxpMtPAlR1n6BB6T1CZGSlCBst6+eLf8ZxXhyVeEHg9j1uliutZfVS7qXMYoCAQlObgOK6nyTJccBz8NUvXt7y+CDwIDAQABo0IwQDAdBgNVHQ4EFgQUU3m/WqorSs9UgOHYm8Cd8rIDZsswDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQEMBQADggIBAFzUfA3P9wF9QZllDHPFUp/L+M+ZBn8b2kMVn54CVVeWFPFSPCeHlCjtHzoBN6J2/FNQwISbxmtOuowhT6KOVWKR82kV2LyI48SqC/3vqOlLVSoGIG1VeCkZ7l8wXEskEVX/JJpuXior7gtNn3/3ATiUFJVDBwn7YKnuHKsSjKCaXqeYalltiz8I+8jRRa8YFWSQEg9zKC7F4iRO/Fjs8PRF/iKz6y+O0tlFYQXBl2+odnKPi4w2r78NBc5xjeambx9spnFixdjQg3IM8WcRiQycE0xyNN+81XHfqnHd4blsjDwSXWXavVcStkNr/+XeTWYRUc+ZruwXtuhxkYzeSf7dNXGiFSeUHM9h4ya7b6NnJSFd5t0dCy5oGzuCr+yDZ4XUmFF0sbmZgIn/f3gZXHlKYC6SQK5MNyosycdiyA5d9zZbyuAlJQG03RoHnHcAP9Dc1ew91Pq7P8yF1m9/qS3fuQL39ZeatTXaw2ewh0qpKJ4jjv9cJ2vhsE/zB+4ALtRZh8tSQZXq9EfX7mRBVXyNWQKV3WKdwrnuWih0hKWbt5DHDAff9Yk2dDLWKMGwsAvgnEzDHNb842m1R0aBL6KCq9NjRHDEjf8tM7qtj3u1cIiuPhnPQCjY/MiQu12ZIvVS5ljFH4gxQ+6IHdfGjjxDah2nGN59PRbxYvnKkKj9</xd:EncapsulatedX509Certificate>
+          </xd:CertificateValues>
+        </xd:UnsignedSignatureProperties>
+      </xd:UnsignedProperties>
+    </xd:QualifyingProperties>
+  </Object>
+</Signature>

@@ -14,7 +14,7 @@ namespace CodeSnippets.Windows.Tests.GemBox.Document
         }
 
         [Fact]
-        public void Test1()
+        public void CanCreateDocumentWithToc()
         {
             const int heading1Count = 3;
             const int heading2Count = 7;
@@ -71,9 +71,9 @@ namespace CodeSnippets.Windows.Tests.GemBox.Document
         }
 
         [Fact]
-        public void Test2()
+        public void CanUpdateToc()
         {
-            DocumentModel document = DocumentModel.Load("Resources\\DocumentWithToc2.docx");
+            DocumentModel document = DocumentModel.Load("Resources\\DocumentWithToc.docx");
 
             var toc = (TableOfEntries) document.GetChildElements(true, ElementType.TableOfEntries).First();
             toc.Update();
