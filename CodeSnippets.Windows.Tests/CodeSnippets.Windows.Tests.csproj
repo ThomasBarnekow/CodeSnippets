@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
@@ -11,9 +11,11 @@
   <ItemGroup>
     <None Remove="Resources\DocumentWithToc.docx" />
     <None Remove="Resources\DocumentWithToc2.docx" />
+    <None Remove="Resources\Signature.xml" />
     <None Remove="Resources\UnsignedDocument.docx" />
     <None Remove="Resources\UnsignedPresentation.pptx" />
     <None Remove="Resources\UnsignedWorkbook.xlsx" />
+    <None Remove="Resources\XadesEnvelopedSignature.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +23,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\DocumentWithToc.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Signature.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\UnsignedDocument.docx">
@@ -32,13 +37,18 @@
     <Content Include="Resources\UnsignedWorkbook.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\XadesEnvelopedSignature.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.10.0" />
-    <PackageReference Include="GemBox.Document" Version="31.0.0.1126-hotfix" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="GemBox.Document" Version="31.0.0.1130" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.5.2" />
     <PackageReference Include="System.Security.Cryptography.Xml" Version="4.7.0" />
+    <PackageReference Include="TimeStampClient" Version="1.1.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
