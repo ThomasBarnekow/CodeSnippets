@@ -15,6 +15,7 @@ using DocumentFormat.OpenXml.CustomXmlDataProperties;
 using DocumentFormat.OpenXml.Packaging;
 using OpenXmlPowerTools;
 using Xunit;
+using W = DocumentFormat.OpenXml.Linq.W;
 
 namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 {
@@ -29,13 +30,13 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
         private static string CreateCustomXmlPart(MainDocumentPart mainDocumentPart, XElement rootElement)
         {
             CustomXmlPart customXmlPart = mainDocumentPart.AddCustomXmlPart(CustomXmlPartType.CustomXml);
-            customXmlPart.PutXDocument(new XDocument(rootElement));
+            customXmlPart.SetXDocument(new XDocument(rootElement));
             return CreateCustomXmlPropertiesPart(customXmlPart);
         }
 
         private static string CreateCustomXmlPropertiesPart(CustomXmlPart customXmlPart)
         {
-            XElement rootElement = customXmlPart.GetXElement();
+            XElement rootElement = OpenXmlPartRootXElementExtensions.GetXElement(customXmlPart);
             if (rootElement == null) throw new InvalidOperationException();
 
             string storeItemId = "{" + Guid.NewGuid().ToString().ToUpper() + "}";
@@ -81,7 +82,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             MainDocumentPart mainDocumentPart = wordDocument.AddMainDocumentPart();
             string storeItemId = CreateCustomXmlPart(mainDocumentPart, customXmlRootElement);
 
-            mainDocumentPart.PutXDocument(new XDocument(
+            mainDocumentPart.SetXDocument(new XDocument(
                 new XElement(W.document,
                     new XAttribute(XNamespace.Xmlns + "w", W.w.NamespaceName),
                     new XElement(W.body,
@@ -122,7 +123,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             MainDocumentPart mainDocumentPart = wordDocument.AddMainDocumentPart();
             string storeItemId = CreateCustomXmlPart(mainDocumentPart, customXmlRootElement);
 
-            mainDocumentPart.PutXDocument(new XDocument(
+            mainDocumentPart.SetXDocument(new XDocument(
                 new XElement(W.document,
                     new XAttribute(XNamespace.Xmlns + "w", W.w.NamespaceName),
                     new XElement(W.body,
@@ -163,7 +164,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             MainDocumentPart mainDocumentPart = wordDocument.AddMainDocumentPart();
             string storeItemId = CreateCustomXmlPart(mainDocumentPart, customXmlRootElement);
 
-            mainDocumentPart.PutXDocument(new XDocument(
+            mainDocumentPart.SetXDocument(new XDocument(
                 new XElement(W.document,
                     new XAttribute(XNamespace.Xmlns + "w", W.w.NamespaceName),
                     new XElement(W.body,
@@ -220,19 +221,19 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             // Update the WordprocessingDocument, using the updated value.
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, true))
             {
-                MainDocumentPart mainDocumentPart = wordDocument.MainDocumentPart;
+                MainDocumentPart mainDocumentPart = wordDocument.MainDocumentPart!;
 
                 // Change custom XML element, again using the simplifying assumption
                 // that we only have a single custom XML part and a single ex:Node
                 // element.
                 CustomXmlPart customXmlPart = mainDocumentPart.CustomXmlParts.Single();
-                XElement root = customXmlPart.GetXElement();
+                XElement root = OpenXmlPartRootXElementExtensions.GetXElement(customXmlPart)!;
                 XElement node = root.Elements(Ns + "Node").Single();
                 node.Value = updatedValue;
-                customXmlPart.PutXDocument();
+                customXmlPart.SaveXDocument();
 
                 // Change the w:sdt contained in the MainDocumentPart.
-                XElement document = mainDocumentPart.GetXElement();
+                XElement document = OpenXmlPartRootXElementExtensions.GetXElement(mainDocumentPart);
                 XElement sdt = FindSdtWithTag("Node", document);
                 sdtContent = sdt.Elements(W.sdtContent).Single();
                 sdtContent.ReplaceAll(
@@ -240,7 +241,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
                         new XElement(W.r,
                             new XElement(W.t, updatedValue))));
 
-                mainDocumentPart.PutXDocument();
+                mainDocumentPart.SaveXDocument();
             }
 
             // Assert the WordprocessingDocument has the expected, updated values.
@@ -258,7 +259,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             MainDocumentPart mainDocumentPart = wordDocument.AddMainDocumentPart();
             string storeItemId = CreateCustomXmlPart(mainDocumentPart, customXmlRoot);
 
-            mainDocumentPart.PutXDocument(new XDocument(
+            mainDocumentPart.SetXDocument(new XDocument(
                 new XElement(W.document,
                     new XAttribute(XNamespace.Xmlns + "w", W.w.NamespaceName),
                     new XElement(W.body,
@@ -278,7 +279,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
         {
             // Retrieve inner text of w:sdt element.
             MainDocumentPart mainDocumentPart = wordDocument.MainDocumentPart;
-            XElement sdt = FindSdtWithTag("Node", mainDocumentPart.GetXElement());
+            XElement sdt = FindSdtWithTag("Node", OpenXmlPartRootXElementExtensions.GetXElement(mainDocumentPart));
             string sdtInnerText = GetInnerText(sdt);
 
             // Retrieve inner text of custom XML element, making the simplifying
@@ -287,7 +288,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             // are bound among any number of custom XML parts. Further, in our
             // simplified example, we also assume there is a single ex:Node element.
             CustomXmlPart customXmlPart = mainDocumentPart.CustomXmlParts.Single();
-            XElement root = customXmlPart.GetXElement();
+            XElement root = OpenXmlPartRootXElementExtensions.GetXElement(customXmlPart);
             XElement node = root.Elements(Ns + "Node").Single();
             string nodeInnerText = node.Value;
 

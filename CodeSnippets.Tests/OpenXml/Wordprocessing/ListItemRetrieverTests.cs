@@ -12,6 +12,7 @@ using DocumentFormat.OpenXml.Packaging;
 using OpenXmlPowerTools;
 using Xunit;
 using Xunit.Abstractions;
+using W = DocumentFormat.OpenXml.Linq.W;
 
 namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 {
@@ -30,7 +31,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             const string path = "Resources\\Numbered Lists.docx";
             using WordprocessingDocument wordDoc = WordprocessingDocument.Open(path, false);
 
-            XElement document = wordDoc.MainDocumentPart.GetXElement();
+            XElement document = OpenXmlPartRootXElementExtensions.GetXElement(wordDoc.MainDocumentPart!)!;
 
             foreach (XElement paragraph in document.Descendants(W.p))
             {

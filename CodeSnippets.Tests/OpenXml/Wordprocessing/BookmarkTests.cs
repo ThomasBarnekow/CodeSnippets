@@ -12,8 +12,8 @@ using System.Linq;
 using System.Xml.Linq;
 using CodeSnippets.OpenXml.Wordprocessing;
 using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Linq;
 using DocumentFormat.OpenXml.Packaging;
-using OpenXmlPowerTools;
 using Xunit;
 
 namespace CodeSnippets.Tests.OpenXml.Wordprocessing
@@ -73,7 +73,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(stream, type))
             {
                 MainDocumentPart part = wordDocument.AddMainDocumentPart();
-                part.PutXDocument(new XDocument(document));
+                part.SetXDocument(new XDocument(document));
             }
 
             return stream;

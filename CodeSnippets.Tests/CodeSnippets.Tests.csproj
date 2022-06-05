@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-
+    <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\base.pptx" />
     <None Remove="Resources\ChartTemplate.crtx" />
     <None Remove="Resources\Movies.xml" />
     <None Remove="Resources\Numbered Lists.docx" />
@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\base.pptx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\ChartTemplate.crtx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -50,7 +53,9 @@
 
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.16.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="DocumentFormat.OpenXml.Linq" Version="2.16.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
     <PackageReference Include="System.CodeDom" Version="6.0.0" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
     <PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.1" />

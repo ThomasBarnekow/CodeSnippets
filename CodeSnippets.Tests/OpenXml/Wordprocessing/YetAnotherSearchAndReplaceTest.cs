@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-using OpenXmlPowerTools;
 using Xunit;
 
 namespace CodeSnippets.Tests.OpenXml.Wordprocessing
@@ -41,7 +40,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             // Assert.
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(docxStream, false))
             {
-                MainDocumentPart part = wordDocument.MainDocumentPart;
+                MainDocumentPart part = wordDocument.MainDocumentPart!;
                 Paragraph p1 = part.Document.Descendants<Paragraph>().First();
                 Paragraph p2 = part.Document.Descendants<Paragraph>().Last();
 
@@ -57,7 +56,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
                 // If you wanted to read the part's contents as text, this is how you
                 // would do it.
                 string partText = ReadPartText(wordDocument.MainDocumentPart);
-                wordDocument.MainDocumentPart.GetXDocument();
+                wordDocument.MainDocumentPart!.GetXDocument();
 
                 // Note that this is not the way in which you should search and replace
                 // text in Open XML documents. The text might be split across multiple

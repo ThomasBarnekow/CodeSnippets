@@ -15,8 +15,8 @@ using System.Xml.Linq;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-using OpenXmlPowerTools;
 using Xunit;
+using W = DocumentFormat.OpenXml.Linq.W;
 
 namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 {
@@ -31,7 +31,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             using MemoryStream stream = CreateWordprocessingDocument(runTexts);
             using WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, false);
 
-            Document document = wordDocument.MainDocumentPart.Document;
+            Document document = wordDocument.MainDocumentPart!.Document;
             Paragraph paragraph = document.Descendants<Paragraph>().Single();
             string innerText = paragraph.InnerText;
 
@@ -62,7 +62,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
                 // Note that GetXElement() is a shortcut for GetXDocument().Root.
                 // This caches the root element and we can later write it back
                 // to the main document part, using the PutXDocument() method.
-                XElement document = wordDocument.MainDocumentPart.GetXElement();
+                XElement document = wordDocument.MainDocumentPart!.GetXElement()!;
 
                 // Specify the parameters of the OpenXmlRegex.Replace() method,
                 // noting that the replacement is given as a parameter.
@@ -70,10 +70,10 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
                 var regex = new Regex(propName);
 
                 // Perform the replacement, thereby modifying the root element.
-                OpenXmlRegex.Replace(content, regex, replacement, null);
+                OpenXmlPowerTools.OpenXmlRegex.Replace(content, regex, replacement, null);
 
                 // Write the changed root element back to the main document part.
-                wordDocument.MainDocumentPart.PutXDocument();
+                wordDocument.MainDocumentPart.SaveXDocument();
             }
 
             // Assert that we have done it right.
@@ -92,7 +92,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(stream, type))
             {
                 MainDocumentPart mainDocumentPart = wordDocument.AddMainDocumentPart();
-                mainDocumentPart.PutXDocument(new XDocument(CreateDocument(runTexts)));
+                mainDocumentPart.SetXDocument(new XDocument(CreateDocument(runTexts)));
             }
 
             return stream;
@@ -127,14 +127,14 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
                         new XElement(W.r,
                             new XElement(W.sym,
                                 new XAttribute(W.font, "Wingdings"),
-                                new XAttribute(W._char, "F04A"))))));
+                                new XAttribute(W.@char, "F04A"))))));
         }
 
         private static void AssertReplacementWasSuccessful(MemoryStream stream, string replacement)
         {
             using WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, false);
 
-            XElement document = wordDocument.MainDocumentPart.GetXElement();
+            XElement document = wordDocument.MainDocumentPart!.GetXElement()!;
             XElement paragraph = document.Descendants(W.p).Single();
             List<XElement> runs = paragraph.Elements(W.r).ToList();
 
@@ -163,7 +163,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
             if (sym == null) return false;
 
             return (string) sym.Attribute(W.font) == fontValue &&
-                   (string) sym.Attribute(W._char) == charValue;
+                   (string) sym.Attribute(W.@char) == charValue;
         }
 
         [Theory]
@@ -184,7 +184,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
 
             // Assert.
             using WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, false);
-            XElement document = wordDocument.MainDocumentPart.GetXElement();
+            XElement document = wordDocument.MainDocumentPart!.GetXElement()!;
             XElement paragraph = document.Descendants(W.p).Single();
             List<XElement> runs = paragraph.Elements(W.r).ToList();
 
@@ -253,7 +253,7 @@ namespace CodeSnippets.Tests.OpenXml.Wordprocessing
                 using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, true))
                 {
                     //grab the header parts and replace tags there
-                    foreach (HeaderPart headerPart in wordDocument.MainDocumentPart.HeaderParts)
+                    foreach (HeaderPart headerPart in wordDocument.MainDocumentPart!.HeaderParts)
                     {
                         ReplaceParagraphParts(headerPart.Header, regex, replacement);
                     }
